@@ -1,0 +1,30 @@
+# Maya Unnecessary Files
+*.swatch
+*.mb.swatch
+*.ma.swatch
+incrementalSave/
+mayaCrash*
+mayaLog*
+
+# Houdini Backups & Journals
+*.hip_bak
+*.hiplc_bak
+*.hip-journal
+backup/
+
+# Substance Painter Backups
+*.spp.bak
+*_spp_meta/
+
+# Nuke Autosaves
+*.nk~
+*.nk.autosave
+
+# Heavy Caches & Renders (handled by OneDrive or local storage)
+02_sim_cache/
+03_renders/
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+desktop.ini
