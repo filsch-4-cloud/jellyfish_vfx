@@ -1,0 +1,29 @@
+name: Daily Automated VFX Backup
+
+on:
+  schedule:
+    - cron: '0 19 * * *' # Runs every day at 6:00 PM UTC
+  workflow_dispatch: # Allows you to also trigger it manually anytime from GitHub
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Stage and commit changes
+        run: |
+          git add .
+          git diff --staged --quiet || git commit -m "chore: automated daily backup of scene files"
+
+      - name: Push changes to repository
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
