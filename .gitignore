@@ -23,6 +23,8 @@ backup/
 # Heavy Caches & Renders (handled by OneDrive or local storage)
 02_sim_cache/
 03_renders/
+backup
+geo
 
 # OS Generated Files
 .DS_Store
