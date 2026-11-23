@@ -1,9 +1,13 @@
 name: Daily Automated VFX Backup
 
+permissions:
+  contents: write
+
 on:
   schedule:
-    - cron: '0 19 * * *' # Runs every day at 6:00 PM UTC
-  workflow_dispatch: # Allows you to also trigger it manually anytime from GitHub
+    # Fastest allowed by GitHub Actions (every 5 minutes); switch to '0 19 * * *' for daily 19:00 UTC
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
 
 jobs:
   backup:
